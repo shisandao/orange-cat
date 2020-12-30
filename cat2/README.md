@@ -1,0 +1,10 @@
+一个简单的servlet容器
+
+该应用相对于cat1，做了以下修改   
+1、OrangeCatRequest实现了javax.servlet.http.HttpServletRequest接口；  
+2、OrangeCatResponse实现了javax.servlet.http.HttpServletResponse接口，并重写了getWriter方法返回PrintWriter用于响应；  
+3、新增DefaultServlet类用于处理请求，该类继承javax.servlet.http.HttpServlet；  
+4、新增外观类RequestFacade、ResponseFacade。  
+通过外观类，DefaultServlet对象只能间接访问HttpServletRequest与HttpServletResponse的接口方法，
+而不能访问OrangeCatRequest与OrangeCatResponse的独有方法；
+且又不影响OrangeCatRequest与OrangeCatResponse对象对自己方法的调用
